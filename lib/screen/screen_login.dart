@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travail/screen/screen_home.dart';
+import 'package:travail/screen/screen_sigin.dart';
 import 'package:travail/screen/screen_singUp.dart';
 
 class ScreenLogin extends StatefulWidget {
@@ -69,7 +68,7 @@ class _ScreenLogin extends State<ScreenLogin> {
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
-                    color: Colors.blue.shade400,
+                    color: Colors.deepOrange,
                   ),
                 ),
                 child: Center(
@@ -106,7 +105,7 @@ class _ScreenLogin extends State<ScreenLogin> {
               child: Container(
                 decoration: BoxDecoration(
                     border: Border.all(
-                  color: Colors.blue.shade400,
+                  color: Colors.deepOrange,
                   width: 1,
                 )),
                 child: Row(
@@ -212,14 +211,14 @@ class _ScreenLogin extends State<ScreenLogin> {
                               padding: EdgeInsets.all(12.0),
                               shape: StadiumBorder(),
                               child: Text(
-                                "SING UP",
+                                "SIGN UP",
                                 style: GoogleFonts.dmSans(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15,
                                 ),
                               ),
-                              color: Colors.red,
+                              color: Colors.deepOrange,
                               onPressed: () {
                                 setState(() {
                                   Navigator.of(context).push(

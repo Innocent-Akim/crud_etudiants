@@ -35,7 +35,7 @@ class CustomTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(0),
           color: Colors.grey[100],
           border: Border.all(
-            color: Colors.blue[100],
+            color: Colors.deepOrange[100],
             width: 1,
           ),
         ),
@@ -127,7 +127,7 @@ List<DropdownMenuItem<String>> isList({List<String> value}) {
                         ),
                       ),
                       decoration: BoxDecoration(
-                          color: Colors.blue,
+                          color: Colors.deepOrange,
                           borderRadius: BorderRadius.circular(15)),
                     ),
                     SizedBox(width: 3),
