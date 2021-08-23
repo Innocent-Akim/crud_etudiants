@@ -11,6 +11,7 @@ part 'sign_in_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   SignInBloc() : super(SignInInitial());
+  List desplay = [];
 
   @override
   Stream<SignInState> mapEventToState(
@@ -22,6 +23,29 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           await Source.getInstance.saveSigIn(modelSingIn: event.modelSignIn);
       if (resultat != null) {
         yield SignInSucces(resultat);
+      }
+    }
+    if (event is SignInFindAll) {
+      yield SignInInitial();
+      var data = await Source.getInstance.findAll().whenComplete(() => null);
+      yield SignInLoading();
+      desplay = data;
+      if (data != null) {
+        yield SignInLoaded();
+      } else {
+        SignInIsEmpty();
+      }
+    }
+    if (event is SignInLogin) {
+      yield SignInLoadeng();
+      var resultat = await Source.getInstance.findLogin(
+        password: event.password,
+        username: event.username,
+      );
+      if (resultat != null) {
+        yield SignInConneced();
+      } else {
+        yield SignInFailded();
       }
     }
   }

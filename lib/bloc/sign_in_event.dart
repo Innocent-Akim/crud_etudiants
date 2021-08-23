@@ -13,3 +13,9 @@ class SignInSave extends SignInEvent {
 }
 
 class SignInFindAll extends SignInEvent {}
+
+class SignInLogin extends SignInEvent {
+  final username;
+  final password;
+  SignInLogin({this.username, this.password});
+}

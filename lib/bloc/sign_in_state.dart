@@ -22,3 +22,9 @@ class SignInSucces extends SignInState {
 
   SignInSucces(this.message);
 }
+
+class SignInLoadeng extends SignInState {}
+
+class SignInFailded extends SignInState {}
+
+class SignInConneced extends SignInState {}

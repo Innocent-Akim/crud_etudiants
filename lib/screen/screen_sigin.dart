@@ -9,6 +9,7 @@ import 'package:travail/app/constantes_screen.dart';
 import 'package:travail/app/constants.dart';
 import 'package:travail/bloc/sign_in_bloc.dart';
 import 'package:travail/model/model_sign_in.dart';
+import 'package:travail/screen/screen_data_signin.dart';
 
 class ScreenUp extends StatefulWidget {
   @override
@@ -54,6 +55,7 @@ class _BodyState extends State<ScreenUp> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             IconButton(
                 icon: Icon(
@@ -73,6 +75,28 @@ class _BodyState extends State<ScreenUp> {
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 ),
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    isDismissible: false,
+                    context: context,
+                    builder: (context) {
+                      return Center(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [ScreenData()],
+                          ),
+                        ),
+                      );
+                    });
+              },
+              icon: Icon(
+                Icons.find_in_page_outlined,
+                color: Colors.deepOrange,
               ),
             ),
           ],

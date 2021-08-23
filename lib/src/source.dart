@@ -38,4 +38,41 @@ class Source {
     }
     return null;
   }
+
+  Future<List<ModelSignIn>> findAll() async {
+    try {
+      List list = <ModelSignIn>[];
+      final response = await http
+          .post("${linkUri}sign_in_find.php", body: {"event": "FIND_ALL"});
+      var resultat = await jsonDecode(response.body);
+      print(resultat);
+      for (int i = 0; i < resultat.length; i++) {
+        list.add(ModelSignIn.fromMap(resultat[i]));
+      }
+      return list;
+    } catch (e) {
+      print(e.toString());
+    }
+    return null;
+  }
+
+  Future<List<ModelSignIn>> findLogin({password, username}) async {
+    try {
+      List list = <ModelSignIn>[];
+      final response = await http.post("${linkUri}sign_in_find.php", body: {
+        "event": "FIND_LOGIN",
+        'password': password,
+        'username': username,
+      });
+      var resultat = await jsonDecode(response.body);
+      print(resultat);
+      for (int i = 0; i < resultat.length; i++) {
+        list.add(ModelSignIn.fromMap(resultat[i]));
+      }
+      return list;
+    } catch (e) {
+      print(e.toString());
+    }
+    return null;
+  }
 }
